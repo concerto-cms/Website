@@ -1,0 +1,7 @@
+services:
+    website.controller.page:
+        class: ConcertoCms\Website\Controller\PageController
+        arguments:
+            - @templating
+            - @concerto_cms_core.content
+            - @router

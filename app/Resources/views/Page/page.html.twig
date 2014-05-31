@@ -1,0 +1,14 @@
+{% extends '::base.html.twig' %}
+{% block title document.title %}
+{% block content %}
+    <header class="jumbotron">
+        <div class="container">
+        <h1>Concerto CMS</h1>
+        <p>Opensource CMS based on Symfony CMF <small>(any many other fantastic libraries)</small></p>
+        <p><a class="btn btn-primary" href="http://www.github.com/concerto-cms">View on Github</a></p>
+        </div>
+    </header>
+    <div class="container">
+        {{ document.content|raw }}
+    </div>
+{% endblock %}

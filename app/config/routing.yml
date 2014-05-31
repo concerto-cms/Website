@@ -1,0 +1,15 @@
+website_splash:
+    path: /
+    defaults:
+        _controller: website.controller.page:splashAction
+
+concerto_cms_core:
+    resource: "@ConcertoCmsCoreBundle/Resources/config/routing.yml"
+    prefix:   "%webapp_path%"
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+
+elfinder:
+     resource: "@FMElfinderBundle/Resources/config/routing.yml"
+     prefix:   /cms
