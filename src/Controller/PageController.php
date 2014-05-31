@@ -15,7 +15,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\RouterInterface;
 
-class PageController {
+class PageController
+{
     private $twig;
     private $cm;
     private $router;
@@ -39,4 +40,4 @@ class PageController {
     {
         return $this->twig->renderResponse(":Page:page.html.twig", array("document" => $contentDocument));
     }
-} 
+}

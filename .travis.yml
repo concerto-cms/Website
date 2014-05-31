@@ -1,10 +1,12 @@
 language: php
 
 php:
-  - 5.3.3
-  - 5.3
+  - 5.5
   - 5.4
 
-before_script: composer install -n
+before_script:
+  - pear install PHP_CodeSniffer
+  - phpenv rehash
 
-script: phpunit -c app
+script:
+  - phpcs --report=summary --extensions=php --standard=PSR2 src/
