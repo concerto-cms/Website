@@ -1,0 +1,7 @@
+services:
+    website.command.updatedocs:
+        class: ConcertoCms\Website\Command\UpdateDocsCommand
+        arguments:
+            - @concerto_cms_core.content
+        tags:
+            -  { name: console.command }

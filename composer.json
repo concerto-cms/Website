@@ -19,7 +19,8 @@
         "sensio/framework-extra-bundle": "~3.0",
         "sensio/generator-bundle": "~2.3",
         "incenteev/composer-parameter-handler": "~2.0",
-        "concerto-cms/core-bundle": "dev-master"
+        "concerto-cms/core-bundle": "dev-master",
+        "concerto-cms/docs": "dev-master"
 
     },
     "minimum-stability": "RC",
@@ -43,7 +44,12 @@
         {
             "type": "vcs",
             "url": "https://github.com/concerto-cms/CoreBundle"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/concerto-cms/Docs"
         }
+
     ],
     "config": {
         "bin-dir": "bin"

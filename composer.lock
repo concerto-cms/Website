@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "e953e0912d59a95aeab915f5b446b757",
+    "hash": "2b5fe999d50afe7c11bdbce65d5d1e22",
     "packages": [
         {
             "name": "aferrandini/urlizer",
@@ -93,6 +93,34 @@
                 "issues": "https://github.com/concerto-cms/CoreBundle/issues"
             },
             "time": "2014-06-01 07:21:38"
+        },
+        {
+            "name": "concerto-cms/docs",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/concerto-cms/Docs.git",
+                "reference": "90c3ff638c88f901c39bb211d31e4e91aaca6b6a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/concerto-cms/Docs/zipball/90c3ff638c88f901c39bb211d31e4e91aaca6b6a",
+                "reference": "90c3ff638c88f901c39bb211d31e4e91aaca6b6a",
+                "shasum": ""
+            },
+            "type": "library",
+            "authors": [
+                {
+                    "name": "Mathieu Maes",
+                    "email": "mathieu@webberig.be"
+                }
+            ],
+            "description": "Documentation for the Concerto CMS software",
+            "support": {
+                "source": "https://github.com/concerto-cms/Docs/tree/master",
+                "issues": "https://github.com/concerto-cms/Docs/issues"
+            },
+            "time": "2014-06-01 13:42:47"
         },
         {
             "name": "doctrine/annotations",
@@ -2829,7 +2857,8 @@
     ],
     "minimum-stability": "RC",
     "stability-flags": {
-        "concerto-cms/core-bundle": 20
+        "concerto-cms/core-bundle": 20,
+        "concerto-cms/docs": 20
     },
     "platform": {
         "php": ">=5.3.3"
