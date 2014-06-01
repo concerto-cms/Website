@@ -15,8 +15,11 @@
 </head>
 <body>
 {% block body %}
+    <div class="main-container">
     {% include ':_Partials:mainmenu.html.twig' %}
     {% block content %}{% endblock %}
+    </div>
+    {% include ':_Partials:footer.html.twig' %}
 {% endblock %}
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 {% block javascripts %}{% endblock %}

@@ -3,8 +3,52 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "af34149492fd49332110218ac0725f5c",
+    "hash": "e953e0912d59a95aeab915f5b446b757",
     "packages": [
+        {
+            "name": "aferrandini/urlizer",
+            "version": "1.0.0",
+            "target-dir": "Ferrandini",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/aferrandini/Urlizer.git",
+                "reference": "9223a883ac24981385cf3ea41bff526c95a3547a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/aferrandini/Urlizer/zipball/9223a883ac24981385cf3ea41bff526c95a3547a",
+                "reference": "9223a883ac24981385cf3ea41bff526c95a3547a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Ferrandini": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ariel Ferrandini",
+                    "email": "arielferrandini@gmail.com",
+                    "homepage": "http://www.ferrandini.com/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Library for urlizer",
+            "homepage": "https://github.com/aferrandini/urlizer",
+            "keywords": [
+                "url",
+                "urlizer"
+            ],
+            "time": "2012-11-15 19:49:27"
+        },
         {
             "name": "concerto-cms/core-bundle",
             "version": "dev-master",
@@ -12,15 +56,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/concerto-cms/CoreBundle.git",
-                "reference": "0e5ddb9e97ab10518d0354f4e8074940cfed5628"
+                "reference": "6ba2ea8a526df78f11ca6e54e78f8d0baf0d342e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/concerto-cms/CoreBundle/zipball/0e5ddb9e97ab10518d0354f4e8074940cfed5628",
-                "reference": "0e5ddb9e97ab10518d0354f4e8074940cfed5628",
+                "url": "https://api.github.com/repos/concerto-cms/CoreBundle/zipball/6ba2ea8a526df78f11ca6e54e78f8d0baf0d342e",
+                "reference": "6ba2ea8a526df78f11ca6e54e78f8d0baf0d342e",
                 "shasum": ""
             },
             "require": {
+                "aferrandini/urlizer": "1.0.*",
                 "doctrine/data-fixtures": "1.0.*",
                 "friendsofsymfony/jsrouting-bundle": "1.5.3",
                 "helios-ag/fm-elfinder-bundle": "1.x",
@@ -47,7 +92,7 @@
                 "source": "https://github.com/concerto-cms/CoreBundle/tree/master",
                 "issues": "https://github.com/concerto-cms/CoreBundle/issues"
             },
-            "time": "2014-05-31 08:56:38"
+            "time": "2014-06-01 07:21:38"
         },
         {
             "name": "doctrine/annotations",
@@ -2515,16 +2560,16 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v2.5.0-RC1",
+            "version": "v2.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "515fbe9d95c89245ffc9f00c34031147963ed6a0"
+                "reference": "59365832a09a1d914d14cbca6a21a7f572760c3b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/515fbe9d95c89245ffc9f00c34031147963ed6a0",
-                "reference": "515fbe9d95c89245ffc9f00c34031147963ed6a0",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/59365832a09a1d914d14cbca6a21a7f572760c3b",
+                "reference": "59365832a09a1d914d14cbca6a21a7f572760c3b",
                 "shasum": ""
             },
             "require": {
@@ -2627,7 +2672,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2014-05-28 01:21:58"
+            "time": "2014-05-31 18:45:50"
         },
         {
             "name": "twig/extensions",
