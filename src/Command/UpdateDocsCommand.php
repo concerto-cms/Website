@@ -5,9 +5,7 @@
  * Date: 01/06/14
  * Time: 15:44
  */
-
 namespace ConcertoCms\Website\Command;
-
 
 use ConcertoCms\CoreBundle\Document\Page;
 use ConcertoCms\CoreBundle\Document\Route;
@@ -18,7 +16,8 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input;
 use Symfony\Component\Console\Output;
 
-class UpdateDocsCommand extends Command {
+class UpdateDocsCommand extends Command
+{
     private $cm;
     private $parser;
     public function __construct(Content $cm, MarkdownParserInterface $parser)
@@ -118,4 +117,4 @@ class UpdateDocsCommand extends Command {
         $this->cm->flush();
         $output->writeln("Done!");
     }
-} 
+}
