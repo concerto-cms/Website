@@ -14,3 +14,6 @@ parameters:
 
     locale:            en
     secret:            ThisTokenIsNotSoSecretChangeIt
+
+    credentials:
+        admin: { password: admin, roles: 'ROLE_ADMIN' }

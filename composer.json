@@ -20,7 +20,8 @@
         "sensio/generator-bundle": "~2.3",
         "incenteev/composer-parameter-handler": "~2.0",
         "concerto-cms/core-bundle": "dev-master",
-        "concerto-cms/docs": "dev-master"
+        "concerto-cms/docs": "dev-master",
+        "knplabs/knp-markdown-bundle": "1.3.x"
 
     },
     "minimum-stability": "RC",

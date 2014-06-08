@@ -3,5 +3,6 @@ services:
         class: ConcertoCms\Website\Command\UpdateDocsCommand
         arguments:
             - @concerto_cms_core.content
+            - @markdown.parser.max
         tags:
             -  { name: console.command }

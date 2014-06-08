@@ -12,6 +12,7 @@ namespace ConcertoCms\Website\Command;
 use ConcertoCms\CoreBundle\Document\Page;
 use ConcertoCms\CoreBundle\Document\Route;
 use ConcertoCms\CoreBundle\Service\Content;
+use Knp\Bundle\MarkdownBundle\MarkdownParserInterface;
 use Symfony\Cmf\Bundle\RoutingBundle\Doctrine\Phpcr\RedirectRoute;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input;
@@ -19,10 +20,12 @@ use Symfony\Component\Console\Output;
 
 class UpdateDocsCommand extends Command {
     private $cm;
-    public function __construct(Content $cm)
+    private $parser;
+    public function __construct(Content $cm, MarkdownParserInterface $parser)
     {
+        $this->parser = $parser;
         $this->cm = $cm;
-        parent::__construct();
+         parent::__construct();
     }
 
     protected function configure()
@@ -67,6 +70,7 @@ class UpdateDocsCommand extends Command {
 
                 $page = $this->cm->getPage($parentUrl . "/" . $slug);
                 if (!$page) {
+                    $output->writeln("Creating page " . $parentUrl . "/" . $slug);
                     $page = new Page();
                     $page->setParent($parentPage);
                     $page->setSlug($slug);
@@ -79,8 +83,10 @@ class UpdateDocsCommand extends Command {
                     $this->cm->persist($page);
                     $this->cm->persist($route);
                 }
+                $markdown = file_get_contents($file->getRealPath());
+                $page->setContent($this->parser->transformMarkdown($markdown));
 
-                $output->writeln("parentUrl: " . $parentUrl);
+                    $output->writeln("parentUrl: " . $parentUrl);
                 $output->writeln("slug: " . $slug);
 
             } elseif ($file->isDir()) {
@@ -100,7 +106,7 @@ class UpdateDocsCommand extends Command {
                 $route->setRouteTarget($docroot);
                 $route->setParentDocument($docroot);
                 $route->setPermanent(true);
-                $route->setContent($page);
+                //$route->setContent($page);
 
                 $this->cm->persist($page);
                 $this->cm->persist($route);
