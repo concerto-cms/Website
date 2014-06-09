@@ -3,6 +3,7 @@ services:
         class: ConcertoCms\Website\Command\UpdateDocsCommand
         arguments:
             - @concerto_cms_core.content
+            - @concerto_cms_core.navigation
             - @markdown.parser
         tags:
             -  { name: console.command }

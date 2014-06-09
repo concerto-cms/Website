@@ -10,7 +10,10 @@ namespace ConcertoCms\Website\Command;
 use ConcertoCms\CoreBundle\Document\Page;
 use ConcertoCms\CoreBundle\Document\Route;
 use ConcertoCms\CoreBundle\Service\Content;
+use ConcertoCms\CoreBundle\Service\Navigation;
 use Knp\Bundle\MarkdownBundle\MarkdownParserInterface;
+use Symfony\Cmf\Bundle\MenuBundle\Doctrine\Phpcr\Menu;
+use Symfony\Cmf\Bundle\MenuBundle\Doctrine\Phpcr\MenuNode;
 use Symfony\Cmf\Bundle\RoutingBundle\Doctrine\Phpcr\RedirectRoute;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input;
@@ -19,11 +22,13 @@ use Symfony\Component\Console\Output;
 class UpdateDocsCommand extends Command
 {
     private $cm;
+    private $nm;
     private $parser;
-    public function __construct(Content $cm, MarkdownParserInterface $parser)
+    public function __construct(Content $cm, Navigation $nav, MarkdownParserInterface $parser)
     {
         $this->parser = $parser;
         $this->cm = $cm;
+        $this->nm = $nav;
          parent::__construct();
     }
 
@@ -40,12 +45,17 @@ class UpdateDocsCommand extends Command
     protected function execute(Input\InputInterface $input, Output\OutputInterface $output)
     {
         $this->output = $output;
-        $docroot = $this->cm->getRoute("en/docs");
-        if (!$docroot) {
-            throw new \RuntimeException("Can't find documentation root");
+        $rootRoute = $this->cm->getRoute("en/docs");
+
+        if (!$rootRoute) {
+            throw new \RuntimeException("Can't find documentation root route");
+        }
+        $rootPage = $rootRoute->getContent();
+        $rootMenu = $this->nm->getMenu("main-menu/en/docs");
+        if (!$rootMenu) {
+            throw new \RuntimeException("Can't find documentation root menu");
         }
 
-        $parentPage = $docroot->getContent();
         $folder = str_replace("/", DIRECTORY_SEPARATOR, "vendor/concerto-cms/docs/docs");
 
         $dir_iterator = new \RecursiveDirectoryIterator($folder, \FilesystemIterator::SKIP_DOTS);
@@ -57,58 +67,78 @@ class UpdateDocsCommand extends Command
         foreach ($iterator as $file) {
             $output->writeln("");
             $slug = $file->getBasename("." . $file->getExtension());
+
             if ($file->isFile() && $file->getExtension() == "md") {
                 $output->writeln("Found file: " . $file->getFilename());
-                $parentUrl = substr($file->getPath(), strlen($folder)+1);
+                $parentSlug = substr($file->getPath(), strlen($folder)+1);
 
-                if ($parentUrl == "") {
-                    $parentUrl = "en/docs";
-                } else {
-                    $parentUrl = "en/docs/" . $parentUrl;
-                }
+                $parentPage = $this->cm->getPage("en/docs/" . $parentSlug);
+                $parentRoute = $this->cm->getRoute("en/docs/" . $parentSlug);
+                $parentMenu = $this->nm->getMenu("main-menu/en/docs/" . $parentSlug);
 
-                $page = $this->cm->getPage($parentUrl . "/" . $slug);
+                $page = $this->cm->getPage("en/docs/" . $parentSlug . "/" . $slug);
                 if (!$page) {
-                    $output->writeln("Creating page " . $parentUrl . "/" . $slug);
+                    $output->writeln("Creating page en/docs/" . $parentSlug . "/" . $slug);
                     $page = new Page();
                     $page->setParent($parentPage);
                     $page->setSlug($slug);
 
-                    $route = new Route();
-                    $route->setName($slug);
-                    $route->setParentDocument($this->cm->getRoute($parentUrl));
-                    $route->setContent($page);
-
                     $this->cm->persist($page);
                     $this->cm->persist($route);
+
                 }
+
+                $route = $this->cm->getRoute("en/docs/" . $parentSlug . "/" . $slug);
+                if (!$route) {
+                    $route = new Route();
+                    $route->setName($slug);
+                    $route->setParentDocument($parentRoute);
+                    $route->setContent($page);
+                }
+
+                $menu = $this->nm->getMenu("en/docs/" . $parentSlug . "/" . $slug);
+                if (!$menu) {
+                    $menu = new MenuNode();
+                    $menu->setParentDocument($parentMenu);
+                    $menu->setName($slug);
+                    $menu->setLabel($slug); // todo: get title from .md content
+                    $menu->setContent($route);
+                    $this->cm->persist($menu);
+                }
+
                 $markdown = file_get_contents($file->getRealPath());
+                $page->setTitle($slug);
                 $page->setContent($this->parser->transformMarkdown($markdown));
 
-                    $output->writeln("parentUrl: " . $parentUrl);
-                $output->writeln("slug: " . $slug);
-
             } elseif ($file->isDir()) {
-                $output->writeln("Creating folder " . $file->getFilename());
+                $output->writeln("Found folder " . $file->getFilename());
 
-                $checkRoute = $this->cm->getRoute("en/docs/" . $slug);
-                if ($checkRoute) {
-                    $output->writeln("Folder already exists, skipping...");
-                    continue;
+                $route = $this->cm->getRoute("en/docs/" . $slug);
+                if (!$route) {
+                    $route = new RedirectRoute();
+                    $route->setName($slug);
+                    $route->setRouteTarget($rootRoute);
+                    $route->setParentDocument($rootRoute);
+                    $route->setPermanent(true);
+                    $this->cm->persist($route);
                 }
-                $page = new Page();
-                $page->setParent($parentPage);
-                $page->setSlug($slug);
+                $page = $this->cm->getPage("en/docs/" . $slug);
+                if (!$page) {
+                    $page = new Page();
+                    $page->setParent($rootPage);
+                    $page->setSlug($slug);
+                    $this->cm->persist($page);
+                }
 
-                $route = new RedirectRoute();
-                $route->setName($slug);
-                $route->setRouteTarget($docroot);
-                $route->setParentDocument($docroot);
-                $route->setPermanent(true);
-                //$route->setContent($page);
-
-                $this->cm->persist($page);
-                $this->cm->persist($route);
+                $menu = $this->nm->getMenu("main-menu/en/docs/" . $slug);
+                if (!$menu) {
+                    $menu = new MenuNode();
+                    $menu->setParentDocument($rootMenu);
+                    $menu->setName($slug);
+                    $menu->setLabel($slug);
+                    $this->cm->persist($menu);
+                }
+                $this->cm->flush();
             }
 
         }

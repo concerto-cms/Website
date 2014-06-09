@@ -18,7 +18,7 @@
                 {% set menu = knp_menu_get('main-menu/en') %}
 
                 {% for item in menu.children %}
-                <li{% if item.current or item.currentAncestor %} class="active"{% endif %}><a href="{{ item.uri }}">{{ item.name }}</a></li>
+                <li{% if item.current or item.currentAncestor %} class="active"{% endif %}><a href="{{ item.uri }}">{{ item.label }}</a></li>
                 {% endfor %}
             </ul>
         </div><!-- /.navbar-collapse -->
