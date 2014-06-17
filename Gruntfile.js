@@ -44,10 +44,7 @@ module.exports = function(grunt) {
                     '<%= bundle.core %>/js/Collection/*.js',
                     '<%= bundle.core %>/js/View/*.js',
                     '<%= bundle.core %>/js/Controller/*.js',
-//                    '<%= bundle.news %>/js/Model/*.js',
-//                    '<%= bundle.news %>/js/Collection/*.js',
-//                    '<%= bundle.news %>/js/View/*.js',
-//                    '<%= bundle.news %>/js/Controller/*.js',
+                    '<%= folders.src %>/js/**/*.js',
                 ],
                 dest: '<%= folders.target %>/js/app.js',
                 nonull: true
@@ -82,6 +79,10 @@ module.exports = function(grunt) {
                 files: '<%= bundle.core %>/less/**/*.less',
                 tasks: ['less:app']
             },
+            less1: {
+                files: '<%= folders.src %>/less/**/*.less',
+                tasks: ['less:web']
+            },
             js: {
                 files: '<%= bundle.core %>/js/**/*.js',
                 tasks: ['js']
@@ -100,7 +101,8 @@ module.exports = function(grunt) {
             core: {
                 files: {
                     '<%= folders.target%>/js/templates.core.js' : [
-                        '<%= bundle.core %>/twigjs/*.twig'
+                        '<%= bundle.core %>/twigjs/*.twig',
+                        '<%= folders.src %>/js/**/*.twig'
                     ]
                 }
             }

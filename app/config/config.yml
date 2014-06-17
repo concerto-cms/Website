@@ -3,6 +3,7 @@ imports:
     - { resource: security.yml }
     - { resource: controllers.yml }
     - { resource: commands.yml }
+    - { resource: services.yml }
 framework:
     #esi:             ~
     #translator:      { fallback: "%locale%" }
@@ -82,6 +83,14 @@ doctrine_phpcr:
    odm:
        auto_mapping: true
        auto_generate_proxy_classes: %kernel.debug%
+       mappings:
+           # An array of mappings, which may be a bundle name or something else
+           website:
+               mapping:              true
+               type:                 annotation
+               dir:                  %kernel.root_dir%/../src/Document
+               prefix:               ConcertoCms\Website\Document
+               is_bundle:            false
 
 cmf_routing:
     chain:
