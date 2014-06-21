@@ -25,7 +25,7 @@ class PageManager implements PageManagerInterface {
         $page = new PageType(
             "ConcertoCmsWebsite:Page",
             "Basic page with header",
-            "View.PageContent_Page"
+            "View.PageContent_PageWithHeader"
         );
         return array($page);
     }
@@ -60,7 +60,7 @@ class PageManager implements PageManagerInterface {
     {
         if ($document instanceof Page) {
             if (isset($params["header"])) {
-                $document->setHeader("header");
+                $document->setHeader($params["header"]);
 
             }
         }

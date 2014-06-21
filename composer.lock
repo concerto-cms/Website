@@ -56,12 +56,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/concerto-cms/CoreBundle.git",
-                "reference": "eec766a40bd43af09867744816f311f54acfde03"
+                "reference": "f1a5ad46d5cfb56c782c6a77992d4c4542a984de"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/concerto-cms/CoreBundle/zipball/eec766a40bd43af09867744816f311f54acfde03",
-                "reference": "eec766a40bd43af09867744816f311f54acfde03",
+                "url": "https://api.github.com/repos/concerto-cms/CoreBundle/zipball/f1a5ad46d5cfb56c782c6a77992d4c4542a984de",
+                "reference": "f1a5ad46d5cfb56c782c6a77992d4c4542a984de",
                 "shasum": ""
             },
             "require": {
@@ -98,7 +98,7 @@
                 "source": "https://github.com/concerto-cms/CoreBundle/tree/master",
                 "issues": "https://github.com/concerto-cms/CoreBundle/issues"
             },
-            "time": "2014-06-17 19:50:28"
+            "time": "2014-06-21 15:04:06"
         },
         {
             "name": "concerto-cms/docs",
