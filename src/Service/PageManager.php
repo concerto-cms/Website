@@ -5,9 +5,7 @@
  * Date: 17/06/14
  * Time: 10:11
  */
-
 namespace ConcertoCms\Website\Service;
-
 
 use ConcertoCms\CoreBundle\Extension\PageManagerInterface;
 use ConcertoCms\CoreBundle\Extension\PageType;
@@ -16,7 +14,8 @@ use ConcertoCms\CoreBundle\Event\PageCreateEvent;
 use ConcertoCms\CoreBundle\Document\ContentInterface;
 use ConcertoCms\Website\Document\Page;
 
-class PageManager implements PageManagerInterface {
+class PageManager implements PageManagerInterface
+{
     /**
      * @return \ConcertoCms\CoreBundle\Extension\PageType[]
      */
@@ -65,5 +64,4 @@ class PageManager implements PageManagerInterface {
             }
         }
     }
-
-} 
+}

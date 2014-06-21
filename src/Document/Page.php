@@ -13,7 +13,8 @@ use Doctrine\ODM\PHPCR\Mapping\Annotations as PHPCR;
 /**
  * @PHPCR\Document(referenceable=true)
  */
-class Page extends \ConcertoCms\CoreBundle\Document\Page {
+class Page extends \ConcertoCms\CoreBundle\Document\Page
+{
     /**
      * @PHPCR\String(nullable=true)
      */
@@ -46,6 +47,4 @@ class Page extends \ConcertoCms\CoreBundle\Document\Page {
         $data["header"] = $this->getHeader();
         return $data;
     }
-
-
 }
