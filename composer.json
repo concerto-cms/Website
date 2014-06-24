@@ -41,17 +41,6 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
         ]
     },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/concerto-cms/CoreBundle"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/concerto-cms/Docs"
-        }
-
-    ],
     "config": {
         "bin-dir": "bin"
     },

@@ -1,9 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
     ],
-    "hash": "cc826c36ee2ad7200e3544097b76b906",
+    "hash": "0937284ad67f976536b5a602a38e06f5",
     "packages": [
         {
             "name": "aferrandini/urlizer",
@@ -56,12 +57,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/concerto-cms/CoreBundle.git",
-                "reference": "f1a5ad46d5cfb56c782c6a77992d4c4542a984de"
+                "reference": "b54f4a4000c353341ad91e67c217642f9cee5c6c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/concerto-cms/CoreBundle/zipball/f1a5ad46d5cfb56c782c6a77992d4c4542a984de",
-                "reference": "f1a5ad46d5cfb56c782c6a77992d4c4542a984de",
+                "url": "https://api.github.com/repos/concerto-cms/CoreBundle/zipball/b54f4a4000c353341ad91e67c217642f9cee5c6c",
+                "reference": "b54f4a4000c353341ad91e67c217642f9cee5c6c",
                 "shasum": ""
             },
             "require": {
@@ -87,6 +88,7 @@
                     "ConcertoCms\\CoreBundle": ""
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "authors": [
                 {
                     "name": "Mathieu Maes",
@@ -94,11 +96,7 @@
                 }
             ],
             "description": "Core features for the Concerto CMS software",
-            "support": {
-                "source": "https://github.com/concerto-cms/CoreBundle/tree/master",
-                "issues": "https://github.com/concerto-cms/CoreBundle/issues"
-            },
-            "time": "2014-06-21 15:04:06"
+            "time": "2014-06-24 19:57:49"
         },
         {
             "name": "concerto-cms/docs",
@@ -106,15 +104,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/concerto-cms/Docs.git",
-                "reference": "90c3ff638c88f901c39bb211d31e4e91aaca6b6a"
+                "reference": "ee7ad10af3277e1f96769248f592666b5c842e7a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/concerto-cms/Docs/zipball/90c3ff638c88f901c39bb211d31e4e91aaca6b6a",
-                "reference": "90c3ff638c88f901c39bb211d31e4e91aaca6b6a",
+                "url": "https://api.github.com/repos/concerto-cms/Docs/zipball/ee7ad10af3277e1f96769248f592666b5c842e7a",
+                "reference": "ee7ad10af3277e1f96769248f592666b5c842e7a",
                 "shasum": ""
             },
             "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
             "authors": [
                 {
                     "name": "Mathieu Maes",
@@ -122,11 +121,7 @@
                 }
             ],
             "description": "Documentation for the Concerto CMS software",
-            "support": {
-                "source": "https://github.com/concerto-cms/Docs/tree/master",
-                "issues": "https://github.com/concerto-cms/Docs/issues"
-            },
-            "time": "2014-06-01 13:42:47"
+            "time": "2014-06-24 20:01:06"
         },
         {
             "name": "doctrine/annotations",
@@ -2061,17 +2056,17 @@
         },
         {
             "name": "sensio/generator-bundle",
-            "version": "v2.3.4",
+            "version": "v2.3.5",
             "target-dir": "Sensio/Bundle/GeneratorBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioGeneratorBundle.git",
-                "reference": "4a7b126e9c22f858e3584b19ddce6e5bdd7677ee"
+                "reference": "8b7a33aa3d22388443b6de0b0cf184122e9f60d2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioGeneratorBundle/zipball/4a7b126e9c22f858e3584b19ddce6e5bdd7677ee",
-                "reference": "4a7b126e9c22f858e3584b19ddce6e5bdd7677ee",
+                "url": "https://api.github.com/repos/sensiolabs/SensioGeneratorBundle/zipball/8b7a33aa3d22388443b6de0b0cf184122e9f60d2",
+                "reference": "8b7a33aa3d22388443b6de0b0cf184122e9f60d2",
                 "shasum": ""
             },
             "require": {
@@ -2107,7 +2102,7 @@
                 }
             ],
             "description": "This bundle generates code for you",
-            "time": "2013-08-21 18:09:35"
+            "time": "2014-04-28 14:01:06"
         },
         {
             "name": "swiftmailer/swiftmailer",
