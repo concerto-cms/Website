@@ -8,7 +8,8 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{ path('/cms/routes/en') }}">Concerto CMS</a>
+            {{ 'Concerto CMS'|link(path('/cms/routes/en'), { class: 'navbar-brand'}) }}
+
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->

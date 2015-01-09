@@ -26,7 +26,9 @@ class AppKernel extends Kernel
             new Symfony\Cmf\Bundle\CoreBundle\CmfCoreBundle(),
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),
-            new \ConcertoCms\CoreBundle\ConcertoCmsCoreBundle()
+            new \ConcertoCms\CoreBundle\ConcertoCmsCoreBundle(),
+            new \Webberig\HtmlUtilbelt\Bundle\WebberigHtmlUtilbeltBundle(),
+            new ConcertoCms\MarkdownBundle\ConcertoCmsMarkdownBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

@@ -19,9 +19,12 @@
         "sensio/framework-extra-bundle": "~3.0",
         "sensio/generator-bundle": "~2.3",
         "incenteev/composer-parameter-handler": "~2.0",
-        "concerto-cms/core-bundle": "dev-master",
+        "concerto-cms/core-bundle": "~0.1",
         "concerto-cms/docs": "dev-master",
-        "knplabs/knp-markdown-bundle": "1.3.x"
+        "concerto-cms/admin-bundle": "~0.1",
+        "knplabs/knp-markdown-bundle": "1.3.x",
+        "webberig/html-utilbelt-bundle": "~1",
+        "concerto-cms/markdown-bundle": "dev-master"
 
     },
     "minimum-stability": "RC",

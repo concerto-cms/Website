@@ -83,14 +83,6 @@ doctrine_phpcr:
    odm:
        auto_mapping: true
        auto_generate_proxy_classes: %kernel.debug%
-       mappings:
-           # An array of mappings, which may be a bundle name or something else
-           website:
-               mapping:              true
-               type:                 annotation
-               dir:                  %kernel.root_dir%/../src/Document
-               prefix:               ConcertoCms\Website\Document
-               is_bundle:            false
 
 cmf_routing:
     chain:
@@ -138,3 +130,7 @@ fm_elfinder:
                 upload_allow: ['image/png', 'image/jpg', 'image/jpeg', 'application/pdf']
                 upload_deny: ['all']
                 upload_max_size: 5M
+
+concerto_cms_markdown:
+    sources:
+        docs: %kernel.root_dir%/../vendor/concerto-cms/docs/docs

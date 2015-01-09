@@ -1,5 +1,1 @@
 services:
-    website.service.pagemanager:
-        class: ConcertoCms\Website\Service\PageManager
-        tags:
-            - { name: concerto.pagemanager }
